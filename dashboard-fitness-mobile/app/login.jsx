@@ -2,37 +2,21 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-export default function SignUp() {
-
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [weight, setWeight] = useState('');
-  const [height, setHeight] = useState('');
-
   const navigation = useNavigation();
-  const handleSignUp = () => {
-    // Mettez ici la logique pour effectuer l'inscription avec les données saisies
-    console.log('SignUp:', { firstName, lastName, email, password, weight, height });
-    navigation.navigate('login');
+
+  const handleLogin = () => {
+    // Mettez ici la logique pour gérer la connexion avec les données saisies
+    console.log('Login:', { email, password });
+    // Exemple de redirection vers une autre page
+    navigation.navigate('home');
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Sign Up</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="First Name"
-        value={firstName}
-        onChangeText={setFirstName}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Last Name"
-        value={lastName}
-        onChangeText={setLastName}
-      />
+      <Text style={styles.title}>Login</Text>
       <TextInput
         style={styles.input}
         placeholder="Email"
@@ -46,22 +30,8 @@ export default function SignUp() {
         onChangeText={setPassword}
         secureTextEntry
       />
-      <TextInput
-        style={styles.input}
-        placeholder="Weight (kg)"
-        value={weight}
-        onChangeText={setWeight}
-        keyboardType="numeric"
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Height (cm)"
-        value={height}
-        onChangeText={setHeight}
-        keyboardType="numeric"
-      />
-      <TouchableOpacity style={styles.button} onPress={handleSignUp}>
-        <Text style={styles.buttonText}>Sign Up</Text>
+      <TouchableOpacity style={styles.button} onPress={handleLogin}>
+        <Text style={styles.buttonText}>Login</Text>
       </TouchableOpacity>
     </View>
   );
@@ -83,12 +53,12 @@ const styles = StyleSheet.create({
   },
   input: {
     width: '100%',
-    height: 40, // Réduire la hauteur des inputs
+    height: 50,
     borderColor: '#ccc',
     borderWidth: 1,
     borderRadius: 10,
     paddingHorizontal: 15,
-    marginBottom: 15,
+    marginBottom: 20,
     fontSize: 16,
     color: '#333',
   },

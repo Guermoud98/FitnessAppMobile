@@ -29,7 +29,7 @@ export default function Index() {
                 <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
                     <Animated.View entering={FadeInDown.delay(200).springify()} style={{ alignItems: 'center' }}>
                         <TouchableOpacity
-                            onPress={() => router.push('home')} // pour passer à la page home
+                            onPress={() => router.push('login')} // pour passer à la page home
                             style={{ height: hp(7), width: wp(35), backgroundColor: '#f43f5e', alignItems: 'center', justifyContent: 'center', borderRadius: 9999, borderWidth: 2, borderColor: '#d4d4d8' }}>
                             <Text style={{ fontSize: hp(3), color: 'white', fontWeight: 'bold', letterSpacing: 2 }}>
                                 Login
