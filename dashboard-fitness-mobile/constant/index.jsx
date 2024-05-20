@@ -27,7 +27,7 @@ export const bodyParts = [
     },
 
     {
-        name: 'cardio',
+        name: 'neck',
         image: require("../assets/images/neck.jpg")
     }
 

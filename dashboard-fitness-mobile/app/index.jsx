@@ -26,15 +26,26 @@ export default function Index() {
                         For you
                     </Text>
                 </Animated.View>
-                <Animated.View entering={FadeInDown.delay(200).springify()} style={{ alignItems: 'center' }}>
-                    <TouchableOpacity 
-                     onPress={()=> router.push('home')} // pour passer à la page home
-                    style={{ height: hp(7), width: wp(80), backgroundColor: '#f43f5e', alignItems: 'center', justifyContent: 'center', borderRadius: 9999, borderWidth: 2, borderColor: '#d4d4d8' }}>
-                        <Text style={{ fontSize: hp(3), color: 'white', fontWeight: 'bold', letterSpacing: 2 }}>
-                            Get started 
-                        </Text>
-                    </TouchableOpacity>
-                </Animated.View>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
+                    <Animated.View entering={FadeInDown.delay(200).springify()} style={{ alignItems: 'center' }}>
+                        <TouchableOpacity
+                            onPress={() => router.push('home')} // pour passer à la page home
+                            style={{ height: hp(7), width: wp(35), backgroundColor: '#f43f5e', alignItems: 'center', justifyContent: 'center', borderRadius: 9999, borderWidth: 2, borderColor: '#d4d4d8' }}>
+                            <Text style={{ fontSize: hp(3), color: 'white', fontWeight: 'bold', letterSpacing: 2 }}>
+                                Login
+                            </Text>
+                        </TouchableOpacity>
+                    </Animated.View>
+                    <Animated.View entering={FadeInDown.delay(200).springify()} style={{ alignItems: 'center' }}>
+                        <TouchableOpacity
+                            onPress={() => router.push('signUp')} // pour passer à la page signup
+                            style={{ height: hp(7), width: wp(35), backgroundColor: '#f43f5e', alignItems: 'center', justifyContent: 'center', borderRadius: 9999, borderWidth: 2, borderColor: '#d4d4d8' }}>
+                            <Text style={{ fontSize: hp(3), color: 'white', fontWeight: 'bold', letterSpacing: 2 }}>
+                                Sign Up
+                            </Text>
+                        </TouchableOpacity>
+                    </Animated.View>
+                </View>
             </LinearGradient>
         </View>
     );
