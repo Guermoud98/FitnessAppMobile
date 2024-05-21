@@ -3,6 +3,8 @@ import React, { version } from 'react';
 import {Image} from 'expo-image';
 import Anticons from 'react-native-vector-icons/AntDesign';
 import Animated, { FadeInDown } from 'react-native-reanimated';
+import {useLocalSearchParams, useRouter} from 'expo-router'
+
 
 export default function exerciseDetails()
 {
@@ -47,7 +49,7 @@ export default function exerciseDetails()
       </Animated.Text>
 
       <Animated.Text
-     entering ={ FadeInDown.delay(200).duration(300).springify()}       style ={{fontSize:hp(2)}}
+     entering ={ FadeInDown.delay(200).duration(300).springify()}  style ={{fontSize:hp(2)}}
       className="text-neutral-800 tracking-wide"
       >
          Secondary Muscles
@@ -65,9 +67,7 @@ export default function exerciseDetails()
             {item?.target}
          </Text>
       </Animated.Text>
-      <Animated.Text
-     entering ={ FadeInDown.delay(400).duration(300).springify()}       style ={{fontSize:hp(3)}}
-      className="font-semibold text-neutral-800 tracking-wide"
+      <Animated.Text entering ={ FadeInDown.delay(400).duration(300).springify()}  style ={{fontSize:hp(3)}} className="font-semibold text-neutral-800 tracking-wide"
       >
         Instructions
       </Animated.Text>
@@ -75,7 +75,7 @@ export default function exerciseDetails()
         item.instructions.split(',').map( (instruction,index)=>{
             return (
                 <Animated.Text
-                entering ={ FadeInDown.delay((index+6)*100).duration(300).springify()}                 key={instruction}
+                entering ={ FadeInDown.delay((index+6)*100).duration(300).springify()}   key={instruction}
                 style={{fontSize: hp(1.7)}}
                 className="text-neutral-800"
                 >

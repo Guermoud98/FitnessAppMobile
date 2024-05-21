@@ -4,8 +4,11 @@ import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-nat
 import { bodyParts } from '../constant';
 import { LinearGradient } from 'expo-linear-gradient'; // Ensure you import LinearGradient
 import Animated, { FadeInDown } from 'react-native-reanimated';
+import { useRouter } from 'expo-router';
+
 
 export default function BodyParts() {
+    const router=useRouter();
     return (
         <View className="mx-4">
             <Text style={{ fontSize: hp(3) }} className="font-semi-bold text-neutral-700"> {/* Corrected className */}
@@ -21,16 +24,17 @@ export default function BodyParts() {
                 columnWrapperStyle={{
                     justifyContent: 'space-between'
                 }}
-                renderItem={({ item, index }) => <BodyPartCard index={index} item={item} />}
+                renderItem={({ item, index }) => <BodyPartCard router={router} index={index} item={item} />}
             />
         </View>
     );
 }
 
-const BodyPartCard = ({ item, index }) => {
+const BodyPartCard = ({ item,router, index }) => {
     return (
         <Animated.View entering ={FadeInDown.duration(400).delay(index*200).springify() }>
             <TouchableOpacity
+            onPress={()=>router.push({pathname: '/exercises',params: item})}
                 style={{ width: wp(44), height: wp(52) }}
                 className="flex justify-end p-4 mb-4"
             >
