@@ -2,6 +2,7 @@ import { View, Text, FlatList, TouchableOpacity, Image } from 'react-native';
 import React from 'react';
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen';
 import { bodyParts } from '../constant';
+
 import { LinearGradient } from 'expo-linear-gradient'; // Ensure you import LinearGradient
 import Animated, { FadeInDown } from 'react-native-reanimated';
 import { useRouter } from 'expo-router';
@@ -11,7 +12,7 @@ export default function BodyParts() {
     const router=useRouter();
     return (
         <View className="mx-4">
-            <Text style={{ fontSize: hp(3) }} className="font-semi-bold text-neutral-700"> {/* Corrected className */}
+            <Text style={{ fontSize: hp(3) }} className="font-semi-bold text-neutral-700"> 
                 Exercices
             </Text>
 

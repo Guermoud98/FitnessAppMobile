@@ -1,22 +1,41 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import axios from 'axios';
 
 export default function SignUp() {
 
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+  const [nom, setNom] = useState('');
+  const [prenom, setPrenom] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [weight, setWeight] = useState('');
-  const [height, setHeight] = useState('');
+  const [poids, setPoids] = useState('');
+  const [taille, setTaille] = useState('');
 
   const navigation = useNavigation();
-  const handleSignUp = () => {
-    // Mettez ici la logique pour effectuer l'inscription avec les données saisies
-    console.log('SignUp:', { firstName, lastName, email, password, weight, height });
-    navigation.navigate('login');
+  const handleSignUp = async () => {
+    try {
+      const response = await axios.post('http://192.168.1.102:8085/api/Utilisateurs/create', {
+        nom,
+        prenom,
+        email,
+        password,
+        poids,
+        taille
+      });
+
+      if (response.status === 201) {
+        Alert.alert('Success', 'User registered successfully');
+        navigation.navigate('login');
+      } else {
+        Alert.alert('Error', 'Failed to register user');
+      }
+    } catch (error) {
+      console.error('Error signing up:', error);
+      Alert.alert('Error', 'Something went wrong, please try again');
+    }
   };
+
 
   return (
     <View style={styles.container}>
@@ -24,14 +43,14 @@ export default function SignUp() {
       <TextInput
         style={styles.input}
         placeholder="First Name"
-        value={firstName}
-        onChangeText={setFirstName}
+        value={nom}
+        onChangeText={setNom}
       />
       <TextInput
         style={styles.input}
         placeholder="Last Name"
-        value={lastName}
-        onChangeText={setLastName}
+        value={prenom}
+        onChangeText={setPrenom}
       />
       <TextInput
         style={styles.input}
@@ -49,15 +68,15 @@ export default function SignUp() {
       <TextInput
         style={styles.input}
         placeholder="Weight (kg)"
-        value={weight}
-        onChangeText={setWeight}
+        value={poids}
+        onChangeText={setPoids}
         keyboardType="numeric"
       />
       <TextInput
         style={styles.input}
         placeholder="Height (cm)"
-        value={height}
-        onChangeText={setHeight}
+        value={taille}
+        onChangeText={setTaille}
         keyboardType="numeric"
       />
       <TouchableOpacity style={styles.button} onPress={handleSignUp}>
