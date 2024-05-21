@@ -1,5 +1,5 @@
 //npm i axios
-import axios from 'axios' 
+import axios from 'axios'
 import {rapidApiKey} from '../constant'
 const baseUrl ='https://exercisedb.p.rapidapi.com'
 
