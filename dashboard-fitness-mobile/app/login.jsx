@@ -1,19 +1,39 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import axios from 'axios';
 
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigation = useNavigation();
 
-  const handleLogin = () => {
-    // Mettez ici la logique pour gérer la connexion avec les données saisies
-    console.log('Login:', { email, password });
-    // Exemple de redirection vers une autre page
-    navigation.navigate('home');
-  };
+  const handleLogin = async () => {
+    try {
+      const response = await axios.post('http://192.168.1.102:8085/api/Utilisateurs/login', null, {
+        params: {
+          email,
+          password
+        }
+      });
 
+      if (response.status === 200) {
+        const user = response.data;
+        console.log('Login successful:', user);
+        navigation.navigate('home');
+      } else {
+        Alert.alert('Login failed', 'Invalid email or password');
+      }
+    } catch (error) {
+      if (error.response && error.response.status === 404) {
+        // Vérifiez ici si le serveur a renvoyé une réponse avec le statut 404
+        Alert.alert('Login failed', 'Invalid email or password');
+      } else {
+        console.error('Error logging in:', error);
+        Alert.alert('Error', 'Something went wrong, please try again');
+      }
+    }
+  };
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Login</Text>

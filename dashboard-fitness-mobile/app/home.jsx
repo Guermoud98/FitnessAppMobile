@@ -6,14 +6,21 @@ import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import ImageSlider from '../components/ImageSlider';
 import BodyParts from '../components/BodyParts';
-
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/native';
 
 
 export default function Home() {
+    const navigation = useNavigation();
+
+    const handleAvatarPress = () => {
+      // Naviguer vers l'écran de profil
+      navigation.navigate('profil');
+    };
     return (
         <SafeAreaView className="flex-1 g-white flex space-y-5" edges={['top']}>
             <StatusBar style="dark" />
-            {/*Avatar*/}
+            
             <View className="flex-row justify-between items-center mx-5">
                 <View className="space-y-2">
                     <Text
@@ -32,11 +39,14 @@ export default function Home() {
 
                 <View className="flex justify-center items-center space-y-2">
                     {/* Avatar image*/}
+                    <TouchableOpacity  onPress={handleAvatarPress}>
                     <Image
                         source={require('../assets/images/avatar.jpg')}
                         style={{ height: hp(6), width: hp(6) }}
                         className="rounded-full"
                     />
+                    </TouchableOpacity>
+                
                     {/* Notification bell*/}
                     <View
                         className="bg-neutral-200 rounded-full flex justify-center items-center border-[3px] border-neutral-300"
@@ -57,7 +67,7 @@ export default function Home() {
                     <BodyParts/>
              </View>
 
-
         </SafeAreaView>
     )
 }
+

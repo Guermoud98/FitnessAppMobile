@@ -2,12 +2,12 @@ import { View, Text, FlatList, TouchableOpacity, Image } from 'react-native';
 import React from 'react';
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen';
 import { bodyParts } from '../constant';
-import { LinearGradient } from 'expo-linear-gradient'; // Ensure you import LinearGradient
+import { LinearGradient } from 'expo-linear-gradient';
 
 export default function BodyParts() {
     return (
         <View className="mx-4">
-            <Text style={{ fontSize: hp(3) }} className="font-semi-bold text-neutral-700"> {/* Corrected className */}
+            <Text style={{ fontSize: hp(3) }} className="font-semi-bold text-neutral-700"> 
                 Exercices
             </Text>
 

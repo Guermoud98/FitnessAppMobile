@@ -34,6 +34,34 @@ export const bodyParts = [
 
 ]
 
+//nutritions
+export const nutritions = [
+    {
+        name: 'back',
+        image: require("../assets/images/back.jpg")
+    },
+    {
+        name: 'cardio',
+        image: require("../assets/images/cardio.jpg")
+    },
+    {
+        name: 'lower arms',
+        image: require("../assets/images/lower-arms.jpg")
+    },
+    {
+        name: 'lower legs',
+        image: require("../assets/images/lower-legs.jpg")
+    },
+
+    {
+        name: 'neck',
+        image: require("../assets/images/neck.jpg")
+    }
+
+
+]
+
+
 //enter : rapidApi exerciseDB and sign up to get the   api key 
 export const rapidApiKey = '2ddb618d88msh1f24f4c76f46d54p14984cjsne04774a0a5c8';
 export const demoExercises =//just for the test it's an example of response JSON
