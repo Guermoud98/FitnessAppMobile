@@ -4,6 +4,7 @@ import {Image} from 'expo-image';
 import Anticons from 'react-native-vector-icons/AntDesign';
 import Animated, { FadeInDown } from 'react-native-reanimated';
 import {useLocalSearchParams, useRouter} from 'expo-router'
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 
 export default function exerciseDetails()
@@ -42,7 +43,7 @@ export default function exerciseDetails()
       style ={{fontSize:hp(2)}}
       className="text-neutral-800 tracking-wide"
       >
-         Equipment
+         Equipment :
           <Text className="font-bold text-neutral-800">
             {item?.equipment}
          </Text>
@@ -52,7 +53,7 @@ export default function exerciseDetails()
      entering ={ FadeInDown.delay(200).duration(300).springify()}  style ={{fontSize:hp(2)}}
       className="text-neutral-800 tracking-wide"
       >
-         Secondary Muscles
+         Secondary Muscles :
           <Text className="font-bold text-neutral-800">
             {item?.secondaryMuscles}
          </Text>
@@ -62,7 +63,7 @@ export default function exerciseDetails()
       style ={{fontSize:hp(2)}}
       className="text-neutral-800 tracking-wide"
       >
-         Target
+         Target :
           <Text className="font-bold text-neutral-800">
             {item?.target}
          </Text>
