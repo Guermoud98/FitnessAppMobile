@@ -3,6 +3,7 @@ import React from 'react';
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen';
 import { bodyParts } from '../constant';
 import { LinearGradient } from 'expo-linear-gradient'; // Ensure you import LinearGradient
+import Animated, { FadeInDown } from 'react-native-reanimated';
 
 export default function BodyParts() {
     return (
@@ -28,7 +29,7 @@ export default function BodyParts() {
 
 const BodyPartCard = ({ item, index }) => {
     return (
-        <View>
+        <Animated.View entering ={FadeInDown.duration(400).delay(index*200).springify() }>
             <TouchableOpacity
                 style={{ width: wp(44), height: wp(52) }}
                 className="flex justify-end p-4 mb-4"
@@ -53,6 +54,6 @@ const BodyPartCard = ({ item, index }) => {
                     {item.name}
                 </Text>
             </TouchableOpacity>
-        </View>
+        </Animated.View>
     );
 }
