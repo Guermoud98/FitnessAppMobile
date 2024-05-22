@@ -271,5 +271,11 @@ export const demoExercises =//just for the test it's an example of response JSON
             ]
         }
     ]
-
-
+    export const userData = {
+        nom: "GUERMOUD",
+        prenom: "Maria",
+        email: "guermoud.maria@gmail.com",
+        height: "163 cm",
+        weight: "50 kg",
+        avatar: require('../assets/images/avatar.jpg'), 
+      };
