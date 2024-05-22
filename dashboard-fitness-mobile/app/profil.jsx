@@ -1,24 +1,16 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-
+import { userData} from '../constant'
 export default function ProfileScreen() {
-  const navigation = useNavigation();
 
+  const navigation = useNavigation();
   const handleGoBack = () => {
     // Retour à l'écran précédent
     navigation.goBack();
   };
 
-  // Exemple de données de l'utilisateur
-  const userData = {
-    name: "John Doe",
-    email: "john.doe@example.com",
-    height: "180 cm",
-    weight: "75 kg",
-    avatar: require('../assets/images/avatar.jpg'), // Remplacez par l'image de l'avatar de l'utilisateur
-  };
-
+  
   return (
     <View style={styles.container}>
       {/* Avatar */}
@@ -26,8 +18,10 @@ export default function ProfileScreen() {
 
       {/* Informations utilisateur */}
       <View style={styles.userInfo}>
-        <Text style={styles.userInfoLabel}>Name:</Text>
-        <Text style={styles.userInfoText}>{userData.name}</Text>
+        <Text style={styles.userInfoLabel}>First Name:</Text>
+        <Text style={styles.userInfoText}>{userData.nom}</Text>
+        <Text style={styles.userInfoLabel}>Last Name:</Text>
+        <Text style={styles.userInfoText}>{userData.prenom}</Text>
         <Text style={styles.userInfoLabel}>Email:</Text>
         <Text style={styles.userInfoText}>{userData.email}</Text>
         <Text style={styles.userInfoLabel}>Height:</Text>

@@ -4,7 +4,7 @@ import {Image} from 'expo-image';
 import Anticons from 'react-native-vector-icons/AntDesign';
 import Animated, { FadeInDown } from 'react-native-reanimated';
 import {useLocalSearchParams, useRouter} from 'expo-router'
-
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 export default function exerciseDetails()
 {
